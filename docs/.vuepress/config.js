@@ -1,4 +1,5 @@
 const moment = require('moment');
+moment.locale('zh-cn')
 
 module.exports = {
   lang: 'zh-CN',
@@ -19,8 +20,9 @@ module.exports = {
         transformer: (timestamp, lang) => {
           // 不要忘了安装 moment
           const moment = require('moment')
-          moment.locale(lang)
-          return moment(timestamp).fromNow()
+          // moment.locale(lang)
+          moment.locale('zh-cn') //不支持多语言
+          return `${moment(timestamp).format('LLLL')} (${moment(timestamp).fromNow()})`
         }
       }
     ],
@@ -29,9 +31,9 @@ module.exports = {
       {
         platform: 'github',
         owner: 'jinhang87',
-        repo: 'vuepress-2.x-demo',
-        clientId: '1f48214cdd89cfeff3f3',
-        clientSecret: 'd02dd04b51e3e7519000bab12caa2d56c559fc86',
+        repo: 'vuepress-1.x-demo',
+        clientId: '8410d65aa67481b0725b',
+        clientSecret: '3c6385cdaaf39f17fca8ab0e0d242d6dd06da9eb',
       }
     ]
   ],
